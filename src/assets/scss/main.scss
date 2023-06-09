@@ -70,7 +70,7 @@ body {
     align-items: center;
     cursor: pointer;
 
-    font-size: 14px;
+    font-size: 12px;
 
     svg {
       height: 1rem;
@@ -78,5 +78,64 @@ body {
       fill: $white;
       rotate: 320deg;
     }
+  }
+}
+
+main {
+  padding: 1rem;
+
+  .input-group {
+    position: relative;
+  }
+
+  input,
+  select {
+    background-color: $dark-blue;
+    color: $white;
+
+    border: none;
+    border-radius: 5px;
+
+    font-size: 12px;
+
+    padding: 14px 1rem;
+
+    &:focus-visible {
+      outline-color: transparent;
+    }
+  }
+
+  input {
+    &.search {
+      width: 100%;
+
+      padding-left: 4rem;
+
+      & + label {
+        height: 1.25rem;
+        width: 1.25rem;
+
+        position: absolute;
+
+        left: 1.5rem;
+        top: 0.75rem;
+
+        svg {
+          height: 100%;
+          width: 100%;
+
+          fill: $white;
+        }
+      }
+
+      &::placeholder {
+        color: $white;
+      }
+    }
+  }
+
+  select {
+    margin-top: 2rem;
+    min-width: 200px;
   }
 }
