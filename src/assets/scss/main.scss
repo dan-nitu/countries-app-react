@@ -1,14 +1,7 @@
-// - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
-// - Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
-// - Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
-
-// - Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
-// - Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
-// - White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
-
 $dark-blue: hsl(209, 23%, 22%);
 $very-dark-blue: hsl(207, 26%, 17%);
 $very-dark-blue2: hsl(200, 15%, 8%);
+
 $dark-gray: hsl(0, 0%, 52%);
 $very-light-gray: hsl(0, 0%, 98%);
 $white: hsl(0, 0%, 100%);
@@ -22,11 +15,68 @@ $white: hsl(0, 0%, 100%);
 // - Family: [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans)
 // - Weights: 300, 600, 800
 
-html {
-  font-family: 'Nunito Sans', sans-serif;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-h1 {
-  font-size: 1.5rem;
-  font-weight: 800;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input {
+  &:focus-visible {
+    outline-color: transparent;
+  }
+}
+
+html {
+  font-family: 'Nunito Sans', sans-serif;
+
+  background-color: $very-dark-blue;
+  color: $white;
+}
+
+body {
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.header {
+  padding: 2.5rem 1rem;
+
+  background-color: $dark-blue;
+
+  display: flex;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .dark-mode {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    font-size: 14px;
+
+    svg {
+      height: 1rem;
+      width: 1.75rem;
+      fill: $white;
+      rotate: 320deg;
+    }
+  }
 }

@@ -1,7 +1,16 @@
 import React from 'react';
+import { ReactComponent as MoonIcon } from './../assets/icons/moon-icon.svg';
 
 const TheHeader = () => {
-  return <h1>Where in the World?</h1>;
+  return (
+    <div className='header'>
+      <h1>Where in the world?</h1>
+
+      <div className='dark-mode'>
+        <MoonIcon /> Dark Mode
+      </div>
+    </div>
+  );
 };
 
 export default TheHeader;
