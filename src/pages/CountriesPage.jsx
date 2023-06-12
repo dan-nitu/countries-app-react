@@ -1,6 +1,8 @@
 import Search from '../components/Search';
 import RegionFilter from '../components/RegionFilter';
 
+import CountryCard from '../components/CountryCard';
+
 import { useState, useEffect } from 'react';
 
 const CountriesPage = () => {
@@ -8,43 +10,33 @@ const CountriesPage = () => {
 
   useEffect(() => {
     const getCountries = async () => {
-      const response = await fetch(
-        `https://restcountries.com/v3.1/all
-      `
-      );
+      const response = await fetch(`https://restcountries.com/v3.1/all`);
       const responseData = await response.json();
 
       setCountries(responseData);
     };
 
     getCountries();
-    console.log(countries[0]);
   }, []);
+
+  const filterByRegion = async (region) => {
+    const response = await fetch(
+      `https://restcountries.com/v3.1/region/${region}`
+    );
+    const responseData = await response.json();
+
+    setCountries(responseData);
+  };
 
   return (
     <main>
       <Search />
 
-      <RegionFilter />
+      <RegionFilter filterByRegion={filterByRegion} />
 
       <div className='countries'>
         {countries.map((country) => (
-          <div className='card'>
-            <img src={country.flags.png} alt='' />
-
-            <div className='content'>
-              <h3>{country.name.common}</h3>
-              <div>
-                <b>Population:</b> {country.population}
-              </div>
-              <div>
-                <b>Region:</b> {country.region}
-              </div>
-              <div>
-                <b>Capital:</b> {country.capital}
-              </div>
-            </div>
-          </div>
+          <CountryCard country={country} />
         ))}
       </div>
 
