@@ -1,6 +1,6 @@
 import { ReactComponent as SearchIcon } from './../assets/icons/search-icon.svg';
 
-const Search = ({ searchByName }) => {
+const Search = ({ name, searchByName }) => {
   const handleSearch = (e) => {
     searchByName(e.target.value);
   };
@@ -12,6 +12,7 @@ const Search = ({ searchByName }) => {
         id='search'
         className='search'
         placeholder='Search for a country...'
+        value={name}
         onChange={handleSearch}
       />
       <label htmlFor='search'>

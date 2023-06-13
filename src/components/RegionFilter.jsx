@@ -1,11 +1,11 @@
-const RegionFilter = ({ filterByRegion }) => {
+const RegionFilter = ({ region, filterByRegion }) => {
   const handleRegion = (e) => {
     filterByRegion(e.target.value);
   };
 
   return (
-    <select name='region' id='region' onChange={handleRegion}>
-      <option value='' disabled selected>
+    <select name='region' id='region' onChange={handleRegion} value={region}>
+      <option value='' disabled>
         Filter by Region
       </option>
 

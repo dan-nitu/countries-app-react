@@ -6,15 +6,6 @@ $dark-gray: hsl(0, 0%, 52%);
 $very-light-gray: hsl(0, 0%, 98%);
 $white: hsl(0, 0%, 100%);
 
-// - Mobile: 375px
-// - Desktop: 1440px
-
-// - Homepage Items: 14px
-// - Detail Page: 16px
-
-// - Family: [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans)
-// - Weights: 300, 600, 800
-
 *,
 *::before,
 *::after {
@@ -52,7 +43,7 @@ body {
   margin-inline: auto;
 }
 
-.header {
+header {
   padding: 2.5rem 1rem;
 
   background-color: $dark-blue;

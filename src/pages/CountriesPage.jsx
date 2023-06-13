@@ -7,6 +7,8 @@ import { useState, useEffect } from 'react';
 
 const CountriesPage = () => {
   const [countries, setCountries] = useState([]);
+  const [name, setName] = useState('');
+  const [region, setRegion] = useState('');
 
   useEffect(() => {
     const getCountries = async () => {
@@ -20,17 +22,25 @@ const CountriesPage = () => {
   }, []);
 
   const searchByName = async (name) => {
+    setName(name);
+    setRegion('');
+
     if (name.trim() !== '') {
       const response = await fetch(
         `https://restcountries.com/v3.1/name/${name}`
       );
-      const responseData = await response.json();
 
-      setCountries(responseData);
+      if (response.status !== 404) {
+        const responseData = await response.json();
+        setCountries(responseData);
+      }
     }
   };
 
   const filterByRegion = async (region) => {
+    setRegion(region);
+    setName('');
+
     const response = await fetch(
       `https://restcountries.com/v3.1/region/${region}`
     );
@@ -41,13 +51,13 @@ const CountriesPage = () => {
 
   return (
     <main>
-      <Search searchByName={searchByName} />
+      <Search name={name} searchByName={searchByName} />
 
-      <RegionFilter filterByRegion={filterByRegion} />
+      <RegionFilter region={region} filterByRegion={filterByRegion} />
 
       <div className='countries'>
         {countries.map((country) => (
-          <CountryCard country={country} />
+          <CountryCard country={country} key={country.name.common} />
         ))}
       </div>
     </main>
