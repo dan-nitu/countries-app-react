@@ -1,6 +1,10 @@
 import { ReactComponent as SearchIcon } from './../assets/icons/search-icon.svg';
 
-const Search = () => {
+const Search = ({ searchByName }) => {
+  const handleSearch = (e) => {
+    searchByName(e.target.value);
+  };
+
   return (
     <div className='input-group'>
       <input
@@ -8,6 +12,7 @@ const Search = () => {
         id='search'
         className='search'
         placeholder='Search for a country...'
+        onChange={handleSearch}
       />
       <label htmlFor='search'>
         <SearchIcon />

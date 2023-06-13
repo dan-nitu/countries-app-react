@@ -19,6 +19,17 @@ const CountriesPage = () => {
     getCountries();
   }, []);
 
+  const searchByName = async (name) => {
+    if (name.trim() !== '') {
+      const response = await fetch(
+        `https://restcountries.com/v3.1/name/${name}`
+      );
+      const responseData = await response.json();
+
+      setCountries(responseData);
+    }
+  };
+
   const filterByRegion = async (region) => {
     const response = await fetch(
       `https://restcountries.com/v3.1/region/${region}`
@@ -30,7 +41,7 @@ const CountriesPage = () => {
 
   return (
     <main>
-      <Search />
+      <Search searchByName={searchByName} />
 
       <RegionFilter filterByRegion={filterByRegion} />
 
@@ -39,8 +50,6 @@ const CountriesPage = () => {
           <CountryCard country={country} />
         ))}
       </div>
-
-      <div></div>
     </main>
   );
 };
