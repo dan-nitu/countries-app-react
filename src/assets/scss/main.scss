@@ -1,10 +1,26 @@
-$dark-blue: hsl(209, 23%, 22%);
-$very-dark-blue: hsl(207, 26%, 17%);
-$very-dark-blue2: hsl(200, 15%, 8%);
+:root {
+  --white: hsl(0, 0%, 100%);
+  --black: (359, 100%, 0%);
 
-$dark-gray: hsl(0, 0%, 52%);
-$very-light-gray: hsl(0, 0%, 98%);
-$white: hsl(0, 0%, 100%);
+  --dark-blue: hsl(209, 23%, 22%);
+  --very-dark-blue: hsl(207, 26%, 17%);
+  --very-dark-blue2: hsl(200, 15%, 8%);
+
+  --very-light-gray: hsl(0, 0%, 98%);
+  --dark-gray: hsl(0, 0%, 52%);
+
+  --primary-color: var(--white);
+  --secondary-color: var(--very-light-gray);
+  --tertiary-color: var(--dark-gray);
+  --text-color: var(--black);
+
+  [data-theme='dark'] {
+    --primary-color: var(--dark-blue);
+    --secondary-color: var(--very-dark-blue);
+    --tertiary-color: var(--very-dark-blue2);
+    --text-color: var(--white);
+  }
+}
 
 @mixin for-tablet-desktop() {
   @media screen and (min-width: 768px) {
@@ -43,6 +59,16 @@ input {
   }
 }
 
+html,
+body,
+#root,
+[data-theme] {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 html {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 14px;
@@ -50,14 +76,17 @@ html {
   @include for-tablet-desktop {
     font-size: 16px;
   }
-
-  background-color: $very-dark-blue;
-  color: $white;
 }
 
-body {
-  max-width: 1440px;
-  margin-inline: auto;
+[data-theme] {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+
+  > * {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+  }
 }
 
 header {
@@ -70,7 +99,7 @@ header {
     padding-inline: 5rem;
   }
 
-  background-color: $dark-blue;
+  background-color: var(--primary-color);
 
   display: flex;
   justify-content: space-between;
@@ -98,7 +127,7 @@ header {
     svg {
       height: 1rem;
       width: 1.75rem;
-      fill: $white;
+      fill: var(--text-color);
       rotate: 320deg;
     }
   }
@@ -130,8 +159,8 @@ main {
 
     input,
     select {
-      background-color: $dark-blue;
-      color: $white;
+      background-color: var(--primary-color);
+      color: var(--text-color);
 
       border: none;
       border-radius: 5px;
@@ -163,12 +192,12 @@ main {
             height: 100%;
             width: 100%;
 
-            fill: $white;
+            fill: var(--text-color);
           }
         }
 
         &::placeholder {
-          color: $white;
+          color: var(--text-color);
         }
       }
     }
@@ -204,11 +233,11 @@ main {
   border-radius: 10px;
   max-width: 260px;
 
-  background-color: $dark-blue;
+  background-color: var(--primary-color);
 
-  box-shadow: 0 0 5px 5px rgb($very-dark-blue2, 0.1);
+  box-shadow: 0 0 5px 5px rgb(var(--tertiary-color), 0.1);
 
-  color: $white;
+  color: var(--text-color);
   text-decoration: none;
 
   img {
@@ -235,7 +264,7 @@ main {
   align-items: center;
 
   text-decoration: none;
-  color: $white;
+  color: var(--text-color);
   width: fit-content;
 
   margin-top: 1rem;
@@ -246,12 +275,12 @@ main {
   }
 
   padding: 3px 18px;
-  background-color: $dark-blue;
+  background-color: var(--primary-color);
   border-radius: 3px;
-  box-shadow: 0 0 5px 5px rgb($very-dark-blue2, 0.25);
+  box-shadow: 0 0 5px 5px rgb(var(--tertiary-color), 0.25);
 
   svg {
-    fill: $white;
+    fill: var(--text-color);
     max-height: 2rem;
     max-width: 1.5rem;
     margin-right: 6px;
@@ -330,10 +359,10 @@ main {
           margin-top: 1rem;
 
           > div {
-            background-color: $dark-blue;
+            background-color: var(--primary-color);
             padding: 6px 18px;
             border-radius: 3px;
-            box-shadow: 0 0 5px 5px rgb($very-dark-blue2, 0.1);
+            box-shadow: 0 0 5px 5px rgb(var(--tertiary-color), 0.1);
             width: fit-content;
           }
         }
