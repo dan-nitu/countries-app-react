@@ -91,6 +91,7 @@ html {
 
 header {
   padding: 2.5rem 1rem;
+  box-shadow: 0 0 10px -5px var(--tertiary-color);
 
   @include for-tablet-desktop {
     padding-inline: 3rem;
@@ -217,25 +218,21 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
 
     @include for-tablet-desktop {
       justify-content: space-evenly;
-    }
-
-    @include for-desktop {
-      justify-content: space-between;
     }
   }
 }
 
 .card {
   border-radius: 10px;
-  max-width: 260px;
+  max-width: 280px;
 
   background-color: var(--primary-color);
 
-  box-shadow: 0 0 5px 5px rgb(var(--tertiary-color), 0.1);
+  box-shadow: 0 0 20px -10px var(--tertiary-color);
 
   color: var(--text-color);
   text-decoration: none;
@@ -243,6 +240,8 @@ main {
   img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+
+    box-shadow: 0 0 20px -10px var(--tertiary-color);
   }
 
   .content {
