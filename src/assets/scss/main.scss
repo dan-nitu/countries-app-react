@@ -189,12 +189,20 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
+
+    @include for-tablet-desktop {
+      justify-content: space-evenly;
+    }
+
+    @include for-desktop {
+      justify-content: space-between;
+    }
   }
 }
 
 .card {
   border-radius: 10px;
-  max-width: 295px;
+  max-width: 260px;
 
   background-color: $dark-blue;
 
