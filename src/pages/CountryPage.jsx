@@ -63,43 +63,51 @@ const CountryPage = () => {
       <main className='country-details'>
         <BackButton />
 
-        <img src={flag.image} alt={flag.description} />
+        <div className='data'>
+          <div>
+            <img src={flag.image} alt={flag.description} />
+          </div>
 
-        <h2>{countryName}</h2>
+          <div>
+            <h2>{countryName}</h2>
 
-        <div>
-          <div>
-            <b>Native Name: </b> {nativeName}
-          </div>
-          <div>
-            <b>Population: </b> {population}
-          </div>
-          <div>
-            <b>Region: </b> {region}
-          </div>
-          <div>
-            <b>Sub Region: </b> {subregion}
-          </div>
-          <div>
-            <b>Capital: </b> {capital}
-          </div>
-        </div>
+            <div>
+              <div>
+                <p>
+                  <b>Native Name: </b> {nativeName}
+                </p>
+                <p>
+                  <b>Population: </b> {population}
+                </p>
+                <p>
+                  <b>Region: </b> {region}
+                </p>
+                <p>
+                  <b>Sub Region: </b> {subregion}
+                </p>
+                <p>
+                  <b>Capital: </b> {capital}
+                </p>
+              </div>
 
-        <div>
-          <div>
-            <b>Top Level Domain: </b> {tld}
-          </div>
-          <div>
-            <b>Currencies: </b> {currencies}
-          </div>
-          <div>
-            <b>Languages:</b> {languages}
-          </div>
-        </div>
+              <div>
+                <p>
+                  <b>Top Level Domain: </b> {tld}
+                </p>
+                <p>
+                  <b>Currencies: </b> {currencies}
+                </p>
+                <p>
+                  <b>Languages:</b> {languages}
+                </p>
+              </div>
+            </div>
 
-        <div>
-          <h4>Border Countries:</h4>
-          <div className='border-countries'>{borderCountries}</div>
+            <div className='borders'>
+              <h4>Border Countries:</h4>
+              <div className='border-countries'>{borderCountries}</div>
+            </div>
+          </div>
         </div>
       </main>
     );

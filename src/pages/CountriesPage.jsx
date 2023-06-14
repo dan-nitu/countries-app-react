@@ -51,9 +51,11 @@ const CountriesPage = () => {
 
   return (
     <main>
-      <Search name={name} searchByName={searchByName} />
+      <div className='controls'>
+        <Search name={name} searchByName={searchByName} />
 
-      <RegionFilter region={region} filterByRegion={filterByRegion} />
+        <RegionFilter region={region} filterByRegion={filterByRegion} />
+      </div>
 
       <div className='countries'>
         {countries.map((country) => (
