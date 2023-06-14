@@ -30,7 +30,7 @@ const CountryPage = () => {
   let languages;
   let currencies;
 
-  let borderCountries;
+  let borderCountries = 'No border countries';
 
   if (JSON.stringify(countryData) !== '{}') {
     flag.image = countryData.flags.png;
@@ -53,9 +53,11 @@ const CountryPage = () => {
       <span key={countryData.languages[key]}>{countryData.languages[key]}</span>
     ));
 
-    borderCountries = Object.keys(countryData.borders).map((key, index) => (
-      <div key={countryData.borders[key]}> {countryData.borders[key]} </div>
-    ));
+    if (countryData.borders !== undefined) {
+      borderCountries = Object.keys(countryData.borders).map((key, index) => (
+        <div key={countryData.borders[key]}> {countryData.borders[key]} </div>
+      ));
+    }
   }
 
   if (JSON.stringify(countryData) !== '{}') {
